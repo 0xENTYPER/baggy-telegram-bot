@@ -61,6 +61,7 @@ The Telegram surface is intentionally compact, but it preserves the same informa
 | Trade | Review a quote, open the wallet, and follow transaction status |
 | Portfolio | Return to balances, positions, and recent activity |
 | Alerts | Receive concise, user-controlled updates without feed spam |
+| Group chat | Add Baggy to a community, resolve tokens in context, and open private actions without exposing wallet data |
 
 ## Why a bot and a Mini App
 
@@ -70,6 +71,41 @@ Chat commands work well for intent, links, and notifications. They are less effe
 - **Telegram Mini App** for search, lists, token context, launch forms, and transaction progress.
 
 This split keeps conversations readable while giving data-heavy tasks enough visual structure.
+
+## Group chat mode
+
+Baggy can be added to Telegram groups as a shared token research assistant. It stays quiet by default and responds only to a slash command, an explicit `@BaggyApp_bot` mention, or a reply to one of its messages.
+
+| Command | Group response |
+| --- | --- |
+| `/baggy` | Compact menu with discovery, search, and help actions |
+| `/token <symbol-or-contract>` | Verified identity, network, market cap or FDV label, liquidity, source, and freshness |
+| `/chart <symbol-or-contract>` | Shareable chart preview with timeframe controls in the Mini App |
+| `/top [network]` | Ranked token list for the selected or supplied network |
+| `/new [network]` | Recently indexed tokens with explicit pool age and liquidity |
+| `/trade <symbol-or-contract>` | Public market context plus a private deep link for wallet review |
+| `/launch` | Private launch flow with network and wallet requirements |
+| `/alerts <symbol-or-contract>` | Private alert setup so preferences are not exposed to the group |
+| `/help` | Available commands and examples for the current chat type |
+
+Examples:
+
+```text
+/token 0x…
+/chart BONK 7d
+/top solana
+@BaggyApp_bot check this contract 0x…
+```
+
+### Group privacy and moderation rules
+
+- Wallet addresses, balances, positions, alert settings, and transaction reviews are never posted to a group.
+- State-changing actions open a user-bound private Mini App session.
+- Read-only token cards can be shared publicly and include network, source, and freshness.
+- Per-chat cooldowns, duplicate suppression, and short-lived caches prevent command floods.
+- Administrators can disable selected commands or restrict them to moderators.
+- The bot ignores ordinary conversation when Telegram privacy mode is enabled.
+- Unsupported or ambiguous contracts produce a clarification instead of a guessed token card.
 
 ## Interaction design
 
@@ -101,6 +137,7 @@ This hierarchy is deliberately shared with the Baggy web application, so Telegra
 ```mermaid
 flowchart LR
     TG[Telegram user] --> BOT[Bot command layer]
+    GROUP[Telegram group] --> BOT
     TG --> MINI[Telegram Mini App]
     BOT --> API[Baggy application API]
     MINI --> AUTH[Telegram session verification]
@@ -179,6 +216,10 @@ Baggy does not ask users to paste private keys into Telegram. State-changing act
 ### Controlled notification delivery
 
 Alerts are queued, deduplicated, and rate-limited. User preferences define the event type and threshold; delivery failures can retry without blocking interactive bot commands.
+
+### Privacy-aware group routing
+
+Every update is classified by chat type and intent before execution. Group-safe read commands may answer in place; anything account-specific or state-changing is converted into a short-lived private deep link bound to the requesting Telegram user.
 
 ## UI state map
 
@@ -332,6 +373,33 @@ function toSnapshot(payload: ProviderToken): TokenSnapshot {
 
 **Why:** a missing market cap is not silently replaced with FDV or liquidity. Source and freshness travel with the value so the interface can explain what it displays.
 
+### 7. Route group commands without leaking private context
+
+```ts
+type ChatIntent = {
+  kind: "token" | "chart" | "trade" | "portfolio" | "help";
+  actorId: string;
+  chatType: "private" | "group" | "supergroup";
+  query?: string;
+};
+
+async function routeChatIntent(intent: ChatIntent) {
+  const isGroup = intent.chatType !== "private";
+  const requiresPrivateContext =
+    intent.kind === "trade" || intent.kind === "portfolio";
+
+  if (isGroup && requiresPrivateContext) {
+    return replyWithPrivateDeepLink(
+      await createUserBoundAction(intent.actorId, intent),
+    );
+  }
+
+  return replyWithGroupSafeResult(await resolveIntent(intent));
+}
+```
+
+**Why:** the same command router can support private and group chats while account data and signing flows remain user-bound.
+
 ## UI system
 
 The visual system is built for repeated scanning rather than decorative browsing:
@@ -351,6 +419,7 @@ The Telegram experience follows Baggy's core design language, but its density an
 | State area | Examples | Owner |
 | --- | --- | --- |
 | Telegram session | verified user, chat, locale | server session boundary |
+| Group context | chat type, permissions, cooldown, reply target | command router |
 | Product context | selected network, active token, current tab | Mini App shell |
 | Wallet | account, ecosystem, connection, signature request | wallet adapter |
 | Remote data | feed, token details, quote, portfolio | query layer |
@@ -365,6 +434,7 @@ The private production project uses complementary checks around the highest-risk
 
 - Telegram session verification and expiry tests;
 - duplicate-update and webhook retry tests;
+- group privacy, command permission, mention, reply, and cooldown tests;
 - token identity and provider normalization tests;
 - network capability and deep-link routing tests;
 - wallet rejection, wrong-network, and interrupted-signature cases;
