@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <filter id="s2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#17221d" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="#f2f5f3"/>
+  <rect x="56" y="34" width="1088" height="692" rx="8" fill="#ffffff" filter="url(#s2)"/>
+  <rect x="56" y="34" width="1088" height="82" rx="8" fill="#ffffff"/>
+  <path d="M56 116H1144" stroke="#dde5e1"/>
+  <circle cx="108" cy="75" r="27" fill="#08c86a"/>
+  <path d="M97 82C99 65 114 59 121 66C115 71 111 79 97 82Z" fill="#ffffff"/>
+  <text x="152" y="70" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#141a17">Private trade review</text>
+  <text x="152" y="95" font-family="Arial, sans-serif" font-size="14" fill="#76807b">Opened from Baggy Community by @alex.sol</text>
+
+  <rect x="56" y="116" width="1088" height="610" fill="#f7f9f8"/>
+  <rect x="104" y="154" width="992" height="76" rx="8" fill="#e9f8f0" stroke="#a9e7c7"/>
+  <circle cx="146" cy="192" r="18" fill="#08c86a"/>
+  <path d="M138 193L144 199L155 184" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="184" y="186" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#087f47">Private session verified</text>
+  <text x="184" y="210" font-family="Arial, sans-serif" font-size="13" fill="#4f6c5e">Only you can see wallet details and approve this action.</text>
+
+  <rect x="104" y="254" width="620" height="410" rx="8" fill="#ffffff" stroke="#dfe6e2"/>
+  <text x="140" y="294" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#737e78">TRADE REVIEW</text>
+  <circle cx="174" cy="350" r="34" fill="#ffcf3f"/>
+  <text x="156" y="361" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#161a18">B</text>
+  <text x="226" y="342" font-family="Arial, sans-serif" font-size="26" font-weight="800" fill="#151b18">Buy BONK</text>
+  <text x="226" y="370" font-family="Arial, sans-serif" font-size="14" fill="#707a75">Solana · verified token identity</text>
+  <path d="M140 404H688" stroke="#e5eae7"/>
+
+  <text x="140" y="438" font-family="Arial, sans-serif" font-size="13" fill="#737e78">YOU PAY</text>
+  <text x="688" y="438" text-anchor="end" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#171d1a">1.00 SOL</text>
+  <text x="140" y="478" font-family="Arial, sans-serif" font-size="13" fill="#737e78">ESTIMATED RECEIVE</text>
+  <text x="688" y="478" text-anchor="end" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#171d1a">8,412,300 BONK</text>
+  <text x="140" y="518" font-family="Arial, sans-serif" font-size="13" fill="#737e78">PRICE IMPACT</text>
+  <text x="688" y="518" text-anchor="end" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#078f4d">0.18%</text>
+  <text x="140" y="558" font-family="Arial, sans-serif" font-size="13" fill="#737e78">QUOTE EXPIRES</text>
+  <text x="688" y="558" text-anchor="end" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#171d1a">00:27</text>
+  <rect x="140" y="590" width="548" height="48" rx="6" fill="#08c86a"/>
+  <text x="324" y="621" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Confirm in wallet</text>
+
+  <rect x="748" y="254" width="348" height="410" rx="8" fill="#111815"/>
+  <text x="780" y="294" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#8c9992">EXECUTION PATH</text>
+  <circle cx="790" cy="342" r="10" fill="#08c86a"/>
+  <text x="820" y="348" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Review prepared</text>
+  <path d="M790 354V406" stroke="#3b4942" stroke-width="2"/>
+  <circle cx="790" cy="420" r="10" fill="#ffffff"/>
+  <text x="820" y="426" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Wallet signature</text>
+  <text x="820" y="448" font-family="Arial, sans-serif" font-size="12" fill="#8c9992">external authorization</text>
+  <path d="M790 432V484" stroke="#3b4942" stroke-width="2"/>
+  <circle cx="790" cy="498" r="10" fill="#3b4942"/>
+  <text x="820" y="504" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#9ba69f">Submit</text>
+  <path d="M790 510V562" stroke="#3b4942" stroke-width="2"/>
+  <circle cx="790" cy="576" r="10" fill="#3b4942"/>
+  <text x="820" y="582" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#9ba69f">Confirmation</text>
+  <text x="780" y="626" font-family="Arial, sans-serif" font-size="12" fill="#78847d">Result returns to your private chat</text>
+</svg>
