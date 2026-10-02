@@ -8,9 +8,17 @@
 
 [Open the bot](https://t.me/BaggyApp_bot) · [Baggy web app](https://baggyapp.win)
 
+![Product](https://img.shields.io/badge/product-live-16C866) ![Surface](https://img.shields.io/badge/surface-Telegram-229ED9) ![Scope](https://img.shields.io/badge/repository-case_study-EFFAF3)
+
 Baggy Telegram Bot brings the shortest Baggy workflows into the place where crypto communities already coordinate. A user can discover a token from a message, open its market context, connect a wallet, prepare an action, and return to the conversation without rebuilding context across several unrelated tools.
 
 > This is a public product and engineering showcase. Production source code, bot credentials, contract configuration, provider routes, and transaction internals remain private.
+
+![Baggy Telegram product walkthrough](assets/product-tour.gif)
+
+| Product | My contribution | Status | Core stack |
+| --- | --- | --- | --- |
+| Telegram-native gateway to Baggy | Bot architecture, command model, Mini App UX, wallet handoff, and delivery safeguards | Live product | TypeScript, Telegram Bot API, Mini Apps, multi-chain data providers |
 
 ## What is implemented
 
