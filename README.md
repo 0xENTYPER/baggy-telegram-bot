@@ -12,6 +12,38 @@ Baggy Telegram Bot brings the shortest Baggy workflows into the place where cryp
 
 > This is a public product and engineering showcase. Production source code, bot credentials, contract configuration, provider routes, and transaction internals remain private.
 
+## Bot inside Telegram chats
+
+<p align="center">
+  <img src="assets/group-chat.svg" width="100%" alt="Baggy Bot responding to token and chart commands inside a Telegram group" />
+</p>
+
+Add `@BaggyApp_bot` to a Telegram group and use it as shared token context without exposing personal wallet data:
+
+- ask for a token by symbol or contract with `/token`;
+- generate a shareable timeframe view with `/chart`;
+- browse `/top` and `/new` tokens for a selected network;
+- mention the bot or reply to its previous message;
+- open Trade, Launch, Portfolio, and Alerts as private user-bound flows;
+- keep the group clean through privacy mode, cooldowns, and duplicate suppression.
+
+The public chat receives market context. Wallet connection, balances, signatures, and transaction review remain private to the requesting user.
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="assets/command-menu.svg" alt="Baggy Bot command menu in Telegram" />
+      <strong>Command-first navigation</strong><br />
+      Discovery, search, network rankings, portfolio, and alerts remain reachable without memorizing every command.
+    </td>
+    <td width="50%" valign="top">
+      <img src="assets/private-trade.svg" alt="Private Baggy trade review opened from a Telegram group" />
+      <strong>Private execution handoff</strong><br />
+      A group request becomes a user-bound review with quote expiry, price impact, wallet authorization, and visible progress.
+    </td>
+  </tr>
+</table>
+
 ## The problem
 
 Telegram is often where a token is first discovered, but verification and execution usually happen elsewhere. That creates a fragile sequence of copied contract addresses, wrong-network mistakes, duplicate token pages, and unclear wallet prompts.
