@@ -6,7 +6,7 @@
 
 **A Telegram-native gateway to multi-chain token discovery, launches, trading workflows, and portfolio context.**
 
-[Open the bot](https://t.me/BaggyApp_bot) · [Baggy web app](https://baggyapp.win) · [X](https://x.com/BaggyApp)
+[Open the bot](https://t.me/BaggyApp_bot) · [Baggy web app](https://baggyapp.win)
 
 Baggy Telegram Bot brings the shortest Baggy workflows into the place where crypto communities already coordinate. A user can discover a token from a message, open its market context, connect a wallet, prepare an action, and return to the conversation without rebuilding context across several unrelated tools.
 
@@ -438,4 +438,4 @@ The Telegram bot is not a disconnected side project. It reuses Baggy's product l
 
 ## Author
 
-Built by [@entyper](https://x.com/entyper).
+Built by [0xENTYPER](https://github.com/0xENTYPER).
